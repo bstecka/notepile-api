@@ -32,7 +32,6 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
         note = Note.objects.get(pk=pk)
         note.text = validated_data.pop('text')
         note.save()
-        print(note)
         return note
 
     class Meta:

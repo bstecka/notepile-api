@@ -13,15 +13,14 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class NoteViewSet(viewsets.ModelViewSet):
-
+    """
+    API endpoint that allows notes to be viewed or edited.
+    """
     def get_serializer_context(self):
         if self.kwargs:
             return {"pk": self.kwargs['pk']}
         else:
             return {}
 
-    """
-    API endpoint that allows notes to be viewed or edited.
-    """
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
